@@ -49,10 +49,10 @@ if (import.meta.env.VITE_GA_MEASUREMENT_ID) {
   });
 }
 
-console.log(import.meta.env.VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID);
+// console.log(import.meta.env.VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router}></RouterProvider>
-  </StrictMode>
+  </StrictMode>,
 );
