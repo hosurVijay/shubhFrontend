@@ -13,6 +13,7 @@ import connect from "../../assets/connect.png";
 import Celebrate from "../../assets/celebrate.png";
 import brahmin from "../../assets/brahmin.png";
 import vaadya from "../../assets/vaadya.png";
+import transportation from "../../assets/transportation.png";
 
 const HomeContent = () => {
   const buttonItems = [
@@ -69,7 +70,7 @@ const HomeContent = () => {
       name: "Transportation",
       path: "/",
       buttonKey: "transport",
-      img: cook,
+      img: transportation,
       active: false,
     },
   ];

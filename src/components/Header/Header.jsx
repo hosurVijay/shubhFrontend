@@ -131,9 +131,9 @@ const Header = () => {
             </Link>
 
             <div className="flex items-center gap-3">
-              <BookNow />
-              <Notification />
-              <AddToCart />
+              {/* <BookNow /> */}
+              {/* <Notification /> */}
+              {/* <AddToCart /> */}
               <button
                 className="text-orange-600 text-2xl p-2 hover:bg-orange-50 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
                 onClick={() => setMenuOpen(!menuOpen)}
