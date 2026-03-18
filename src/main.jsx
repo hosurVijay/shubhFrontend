@@ -9,6 +9,7 @@ import App from "./App.jsx";
 import Muhuratas from "./Pages/Muhurtas.jsx";
 import Details from "./Pages/Details.jsx";
 import About from "./Pages/About.jsx";
+import ContactForm from "./Pages/ContactForm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <ComingSoon />,
+        element: <ContactForm />,
       },
       {
         path: "/muhurat",
