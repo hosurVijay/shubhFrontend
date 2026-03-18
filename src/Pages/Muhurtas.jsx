@@ -3,7 +3,8 @@ import axios from "axios";
 import FilterComponent from "../components/FilterComponent/FilterComponent";
 import CalendarComponent from "../components/Calendar/CalendarComponent";
 import { OrbitProgress } from "react-loading-indicators";
-import { formatDateLocal } from "../utils/dateUtils";
+import { formatDateLocal, formatDateDisplay } from "../utils/dateUtils";
+
 const Muhuratas = () => {
   const today = new Date();
 
@@ -32,7 +33,7 @@ const Muhuratas = () => {
 
         const res = await axios.get(
           `${import.meta.env.VITE_API_DATA_URL}/filter-data`,
-          { params }
+          { params },
         );
 
         setData(res.data?.data || []);
@@ -47,15 +48,18 @@ const Muhuratas = () => {
     fetchData();
   }, [filters, month, year]);
 
+  // ✅ Keep backend format for matching
   const muhurtaDates = Array.isArray(data) ? data.map((item) => item.date) : [];
 
   const handleDateSelect = (dateObj) => {
     setFilters((prev) => {
-      if (prev.date === formatDateLocal(dateObj)) {
-        // toggle OFF → show whole month
+      const formatted = formatDateLocal(dateObj);
+
+      if (prev.date === formatted) {
         return { ...prev, date: "", day: "" };
       }
-      return { ...prev, date: formatDateLocal(dateObj), day: "" };
+
+      return { ...prev, date: formatted, day: "" };
     });
   };
 
@@ -77,17 +81,17 @@ const Muhuratas = () => {
         <div className="lg:col-span-2 bg-white rounded-2xl shadow border p-4">
           <h2 className="text-lg font-semibold mb-2">Available Muhurtas</h2>
 
+          {/* ✅ FIXED DISPLAY */}
           {filters.date && (
             <p className="text-sm text-gray-600 mb-3">
               Showing results for{" "}
               <span className="font-semibold text-orange-600">
-                {filters.date}
+                {formatDateDisplay(filters.date)}
               </span>
             </p>
           )}
 
           <div className="h-[420px] overflow-y-auto pr-2">
-            {/* ===== LOADING ===== */}
             {loading && (
               <div className="h-full flex items-center justify-center">
                 <OrbitProgress dense color="#F97316" size="medium" />
@@ -106,7 +110,9 @@ const Muhuratas = () => {
 
                 <p className="text-sm text-gray-600 mt-1">
                   {filters.date
-                    ? `No Muhurtas available for ${filters.date}`
+                    ? `No Muhurtas available for ${formatDateDisplay(
+                        filters.date,
+                      )}`
                     : "Try changing filters or month"}
                 </p>
               </div>
@@ -119,7 +125,6 @@ const Muhuratas = () => {
                     key={index}
                     className="border border-orange-200 rounded-xl p-4 hover:bg-orange-50/40 transition"
                   >
-                    {/* HEADER */}
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                       <p className="font-semibold text-orange-600">
                         {item?.muhurtaType}
@@ -130,8 +135,9 @@ const Muhuratas = () => {
                       </span>
                     </div>
 
+                    {/* ✅ FIXED DISPLAY */}
                     <p className="text-sm text-gray-600 mt-1">
-                      📅 {item?.date} • {item?.day}
+                      📅 {formatDateDisplay(item?.date)} • {item?.day}
                     </p>
 
                     <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">

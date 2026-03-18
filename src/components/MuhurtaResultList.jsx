@@ -4,7 +4,7 @@ import FilterComponent from "../components/FilterComponent/FilterComponent";
 import CalendarComponent from "../components/Calendar/CalendarComponent";
 import MuhurtaResultCard from "../components/MuhurtaResultCard";
 import { OrbitProgress } from "react-loading-indicators";
-import { formatDateLocal } from "../utils/dateUtils";
+import { formatDateLocal, formatDateDisplay } from "../utils/dateUtils";
 
 const Muhuratas = () => {
   const today = new Date();
@@ -29,7 +29,7 @@ const Muhuratas = () => {
 
         const res = await axios.get(
           `${import.meta.env.VITE_API_BASE_URL}/filter-data`,
-          { params }
+          { params },
         );
 
         setData(res.data.data || []);
@@ -51,7 +51,7 @@ const Muhuratas = () => {
     setFilters((prev) =>
       prev.date === formatted
         ? { ...prev, date: "" }
-        : { ...prev, date: formatted }
+        : { ...prev, date: formatted },
     );
   };
 
@@ -73,6 +73,16 @@ const Muhuratas = () => {
         <div className="lg:col-span-2 bg-white rounded-2xl shadow border p-4">
           <h2 className="font-semibold mb-3">Available Muhurtas</h2>
 
+          {/* ✅ Display formatted date */}
+          {filters.date && (
+            <p className="text-sm text-gray-600 mb-2">
+              Showing results for{" "}
+              <span className="font-semibold text-orange-600">
+                {formatDateDisplay(filters.date)}
+              </span>
+            </p>
+          )}
+
           <div className="h-[420px] overflow-y-auto">
             {loading && (
               <div className="h-full flex justify-center items-center">
@@ -89,7 +99,13 @@ const Muhuratas = () => {
             {!loading && data.length > 0 && (
               <div className="space-y-3">
                 {data.map((item, i) => (
-                  <MuhurtaResultCard key={i} item={item} />
+                  <MuhurtaResultCard
+                    key={i}
+                    item={{
+                      ...item,
+                      displayDate: formatDateDisplay(item.date),
+                    }}
+                  />
                 ))}
               </div>
             )}
