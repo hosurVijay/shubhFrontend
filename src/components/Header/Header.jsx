@@ -33,7 +33,7 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Company", path: "/company" },
+    { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
     { name: "Login", path: "/partnerLogin" },
   ];

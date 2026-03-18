@@ -5,12 +5,11 @@ import Twitter from "./Twitter";
 import Mail from "./Mail";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   const footerLinks = {
-    left: [{ name: "Company", path: "/company" }],
-    right: [
-      { name: "Support", path: "/contact" },
-      // { name: "Legal", path: "/contact" },
-    ],
+    left: [{ name: "About Us", path: "/about" }],
+    right: [{ name: "Support", path: "/contact" }],
   };
 
   return (
@@ -62,6 +61,12 @@ const Footer = () => {
             </div>
           </div>
         </nav>
+
+        {/* ✅ COPYRIGHT */}
+        <div className="mt-6 text-center text-sm text-gray-600 border-t pt-4">
+          © {currentYear} Shubhakarya. All rights reserved. Unauthorized use is
+          prohibited.{" "}
+        </div>
       </Container>
     </footer>
   );

@@ -8,7 +8,7 @@ import ComingSoon from "./Pages/ComingSoon.jsx";
 import App from "./App.jsx";
 import Muhuratas from "./Pages/Muhurtas.jsx";
 import Details from "./Pages/Details.jsx";
-import Company from "./Pages/Company.jsx";
+import About from "./Pages/About.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,8 +36,8 @@ const router = createBrowserRouter([
         element: <Muhuratas />,
       },
       {
-        path: "/company",
-        element: <Company />,
+        path: "/about",
+        element: <About />,
       },
     ],
   },
