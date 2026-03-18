@@ -98,8 +98,8 @@ export default function ContactForm() {
               </p>
 
               <div className="space-y-4 text-gray-700">
-                <p>📧 contact@shubhakarya.com</p>
-                <p>📞 +91 98765 43210</p>
+                <p>📧 shubhakaryateam@gmail.com</p>
+                <p>📞 +91 8762829471</p>
                 <p>📍 Bangalore, India</p>
               </div>
 
