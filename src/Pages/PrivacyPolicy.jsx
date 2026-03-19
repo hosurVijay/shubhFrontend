@@ -175,7 +175,7 @@ const PrivacyPolicy = () => {
                   href="mailto:contact@shubhakarya.com?subject=Privacy Policy Query"
                   className="text-orange-600 font-medium hover:underline"
                 >
-                  contact@shubhakarya.com
+                  shubhakaryateam@gmail.com
                 </a>
               </p>
 
