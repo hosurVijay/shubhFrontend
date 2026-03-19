@@ -10,6 +10,7 @@ import Muhuratas from "./Pages/Muhurtas.jsx";
 import Details from "./Pages/Details.jsx";
 import About from "./Pages/About.jsx";
 import ContactForm from "./Pages/ContactForm.jsx";
+import PrivacyPolicy from "./Pages/PrivacyPolicy.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/howItWorks",
+        path: "/comingsoon",
         element: <ComingSoon />,
       },
       {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/policy",
+        element: <PrivacyPolicy />,
       },
     ],
   },

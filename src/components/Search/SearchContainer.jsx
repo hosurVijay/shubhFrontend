@@ -59,7 +59,7 @@ const SearchContainer = () => {
 
       <div className="relative z-10 h-full flex flex-col px-4 sm:px-8 lg:px-20 py-6 ">
         <div className="flex gap-4 text-sm text-white">
-          <Link to="/contact" className="hover:underline">
+          <Link to="/comingsoon" className="hover:underline">
             All Services
           </Link>
         </div>

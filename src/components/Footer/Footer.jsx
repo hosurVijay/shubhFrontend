@@ -9,7 +9,10 @@ const Footer = () => {
 
   const footerLinks = {
     left: [{ name: "About Us", path: "/about" }],
-    right: [{ name: "Support", path: "/contact" }],
+    right: [
+      { name: "Support", path: "/contact" },
+      { name: "Privacy policy", path: "/policy" },
+    ],
   };
 
   return (
