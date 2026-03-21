@@ -172,7 +172,7 @@ const PrivacyPolicy = () => {
               <p className="mt-2">
                 📧{" "}
                 <a
-                  href="mailto:contact@shubhakarya.com?subject=Privacy Policy Query"
+                  href="mailto:shubhakaryateam@gmail.com?subject=Privacy Policy Query"
                   className="text-orange-600 font-medium hover:underline"
                 >
                   shubhakaryateam@gmail.com
